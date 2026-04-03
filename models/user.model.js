@@ -1,11 +1,12 @@
-import { string } from "joi";
-import mongoosse from "mongoose";
- 
-const userShema = new mongoose.schema({
-    name : String,
-    email: {type: string, unique: true},
-    password: string
-    }, {timestamps : true});
+import mongoose from "mongoose";
 
+const userSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: { type: String, unique: true },
+    password: String,
+  },
+  { timestamps: true },
+);
 
-    export const User = mongoosse.model("User", userShema);
+export const User = mongoose.model("User", userSchema);

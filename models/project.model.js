@@ -1,17 +1,19 @@
-import mogoose from "mongoose"
+import mongoose from "mongoose";
 
-const projectShema = new mongoose.Schema({
-    title : string ,
-    description : string , 
-    goalAmount : Number ,
-    currentAmount : {
-        type : Number ,
-        default : 0
+const projectSchema = new mongoose.Schema(
+  {
+    title: String,
+    description: String,
+    goalAmount: Number,
+    currentAmount: {
+      type: Number,
+      default: 0,
     },
     userId: {
-        type: mogoose.Schema.Types.ObjectId,
-        ref: "User"
-    }
-    
-}, {timestamps : true});
-export const project = mogoose.model("Project", projectShema)
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  { timestamps: true },
+);
+export const Project = mongoose.model("Project", projectSchema);
