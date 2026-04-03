@@ -1,9 +1,9 @@
 import { Router } from "express";
+import { protect, authorizeRoles } from "../middlewares/auth.middleware.js";
 import { invest } from "../controllers/investment.controller.js";
-import { protect } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.post("/", protect, invest);
+router.post("/", protect, authorizeRoles("investor"), invest);
 
 export default router;
