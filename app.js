@@ -9,6 +9,12 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+const test = (req, res, next) => {
+  // res.json({ message: "hello houssam" });
+  req.name = "houssam";
+  next();
+};
+
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/investments", investmentRoutes);

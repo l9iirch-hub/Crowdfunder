@@ -14,6 +14,7 @@ export const createProject = async (req, res) => {
 };
 
 export const getMyProjects = async (req, res) => {
+  console.log(req.name);
   const projects = await Project.find({ owner: req.user._id }).populate({
     path: "investments",
     populate: { path: "investorId", select: "name" },
