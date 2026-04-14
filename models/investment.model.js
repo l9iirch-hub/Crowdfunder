@@ -13,7 +13,7 @@ const investmentSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    percentage: { type: Number }, // calculé automatiquement
+    percentage: { type: Number }, 
   },
   { timestamps: true },
 );

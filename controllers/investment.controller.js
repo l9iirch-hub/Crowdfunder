@@ -19,7 +19,6 @@ export const invest = async (req, res) => {
   });
   project.investments.push(investment._id);
 
-  // check if project capital reached
   const totalInvested = await Investment.aggregate([
     { $match: { projectId: project._id } },
     { $group: { _id: "$projectId", total: { $sum: "$amount" } } },
@@ -27,5 +26,5 @@ export const invest = async (req, res) => {
   if (totalInvested[0]?.total >= project.capital) project.status = "closed";
   await project.save();
 
-  res.status(201).json(investment);
+  res.status(201).json(investment); 
 };
